@@ -13,21 +13,28 @@ struct ContentView: View {
     
     @State private var alertIsVisible = false
     @State private var sliderValue = 50.5
-    @State private var round = 1
-    @State private var score = 0.0
     @State private var game = Game()
     
     var body: some View {
         ZStack {
             BackgroundView(game: $game)
             VStack {
-                Spacer()
+                //Spacer()
                 InstructionsView(game: $game)
-                    .padding(.bottom, 100)
+                    .padding(.bottom, alertIsVisible ? 0 : 100)
+                if alertIsVisible {
+                    PointsView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                        .transition(.scale)
+                } else {
                 HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
-                Spacer()
+                    .transition(.scale)
+                }
+                //Spacer()
             }
+            if !alertIsVisible {
             SliderView(sliderValue: $sliderValue)
+                .transition(.scale)
+            }
         }
     }
 }
@@ -72,10 +79,13 @@ struct HitMeButton: View {
     
     var body: some View {
         Button(action: {
+            withAnimation {
             alertIsVisible = true
-            
+            }
         }) {
             HitMeButtonStyle(text: "Hit Me")
+                
+          /*
         .alert(isPresented: $alertIsVisible,
                content: {
                 let roundedValue = Int(sliderValue.rounded())
@@ -85,10 +95,10 @@ struct HitMeButton: View {
                 
                 )
                })
+             */
         }
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

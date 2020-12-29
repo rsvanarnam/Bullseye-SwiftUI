@@ -38,7 +38,8 @@ struct ContentView: View {
         }
     }
 }
-                                                                                                                
+
+// Instructions "Put the bullseye as close as you can to"
 struct InstructionsView: View {
     
     @Binding var game: Game
@@ -55,6 +56,7 @@ struct InstructionsView: View {
     }
 }
 
+// Slider with "1" and "100" on either side.
 struct SliderView: View {
     
     @Binding var sliderValue: Double
@@ -71,6 +73,7 @@ struct SliderView: View {
     }
 }
 
+// Hit Me button.
 struct HitMeButton: View {
     
     @Binding var alertIsVisible: Bool
@@ -88,6 +91,7 @@ struct HitMeButton: View {
         }
     }
 }
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

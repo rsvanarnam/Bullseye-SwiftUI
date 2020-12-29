@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+// Hit me button alert.
 struct PointsView: View {
     
     @Binding var alertIsVisible: Bool

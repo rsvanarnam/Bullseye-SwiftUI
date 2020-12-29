@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Main screen - Hit me button with gradient and stroked border.
 struct HitMeButtonStyle: View {
     var text: String
     
@@ -30,6 +31,7 @@ struct HitMeButtonStyle: View {
     }
 }
 
+// Main screen - Used for the button that resets round and score.
 struct RoundedImageViewStroked: View {
     var systemName: String
     
@@ -45,6 +47,7 @@ struct RoundedImageViewStroked: View {
     }
 }
 
+// Main screen and leaderboard - Used for the button that opens and closes the leaderboard.
 struct RoundedImageViewFilled: View {
     var systemName: String
     
@@ -60,6 +63,7 @@ struct RoundedImageViewFilled: View {
     }
 }
 
+//  Main screen - used for round and score counters.
 struct RoundRectTextView: View {
     var text: String
     
@@ -80,6 +84,7 @@ struct RoundRectTextView: View {
     }
 }
 
+// Leaderboard screen - used for index number.
 struct RoundedTextView: View {
     let text: String
     

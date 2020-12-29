@@ -31,31 +31,7 @@ struct LeaderboardView: View {
     }
 }
 
-struct RowView: View {
-    let index: Int
-    let score: Int
-    let date: Date
-    
-    var body: some View {
-        HStack {
-            RoundedTextView(text: String(index))
-            Spacer()
-            ScoreText(score: score)
-                .frame(width: Constants.Leaderboard.leaderboardScoreColWidth)
-            Spacer()
-            DateText(date: date)
-                .frame(width: Constants.Leaderboard.leaderboardDateColWidth)
-        }
-        .background(
-            RoundedRectangle(cornerRadius: .infinity)
-                .strokeBorder(Color("LeaderboardRowColor"), lineWidth: Constants.General.strokeWidth)
-        )
-        .padding(.leading)
-        .padding(.trailing)
-        .frame(maxWidth: Constants.Leaderboard.leaderboardMaxRowWidth)
-    }
-}
-
+// Leaderboard and close button. Adjusts spacing based on orientation.
 struct HeaderView: View {
     @Binding var leaderboardIsShowing: Bool
     @Environment(\.verticalSizeClass) var verticalSizeClass
@@ -86,6 +62,7 @@ struct HeaderView: View {
     }
 }
 
+// Score and Date text.
 struct LabelView: View {
     var body: some View {
         HStack {
@@ -98,6 +75,32 @@ struct LabelView: View {
             LabelText(text: "Date")
                 .frame(width: Constants.Leaderboard.leaderboardDateColWidth)
         }
+        .padding(.leading)
+        .padding(.trailing)
+        .frame(maxWidth: Constants.Leaderboard.leaderboardMaxRowWidth)
+    }
+}
+
+// Displays data from the leaderboardEntry array. 
+struct RowView: View {
+    let index: Int
+    let score: Int
+    let date: Date
+    
+    var body: some View {
+        HStack {
+            RoundedTextView(text: String(index))
+            Spacer()
+            ScoreText(score: score)
+                .frame(width: Constants.Leaderboard.leaderboardScoreColWidth)
+            Spacer()
+            DateText(date: date)
+                .frame(width: Constants.Leaderboard.leaderboardDateColWidth)
+        }
+        .background(
+            RoundedRectangle(cornerRadius: .infinity)
+                .strokeBorder(Color("LeaderboardRowColor"), lineWidth: Constants.General.strokeWidth)
+        )
         .padding(.leading)
         .padding(.trailing)
         .frame(maxWidth: Constants.Leaderboard.leaderboardMaxRowWidth)

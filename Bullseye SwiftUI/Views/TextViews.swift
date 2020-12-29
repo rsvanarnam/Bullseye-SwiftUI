@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Main screen - "Put the bullseye as close as you can to".
 struct InstructionText: View {
     var text: String
     
@@ -22,6 +23,7 @@ struct InstructionText: View {
     }
 }
 
+// Main screen - for the randomly generated target number.
 struct BigNumberText: View {
     var text: String
     
@@ -34,6 +36,7 @@ struct BigNumberText: View {
     }
 }
 
+// Main screen - Text on either side of the slider: "1" and "100".
 struct SliderLabelText: View {
     var text: String
     
@@ -46,6 +49,7 @@ struct SliderLabelText: View {
     }
 }
 
+// Main screen - Score and Round text. 
 struct LabelText: View {
     var text: String
     
@@ -60,6 +64,7 @@ struct LabelText: View {
     }
 }
 
+// Hit me button alert - "You scored .... points".
 struct BodyText: View {
     var text: String
     
@@ -73,6 +78,7 @@ struct BodyText: View {
     }
 }
 
+// Hit me button alert - "Start New Round".
 struct ButtonText: View {
     var text: String
     
@@ -91,6 +97,21 @@ struct ButtonText: View {
     }
 }
 
+
+// Leaderboard screen - leaderboard text.
+struct BigBoldText: View {
+    let text: String
+    
+    var body: some View {
+        Text(text.uppercased())
+            .kerning(2.0)
+            .foregroundColor(Color("TextColor"))
+            .font(.title)
+            .fontWeight(.black)
+    }
+}
+
+// Leaderboard screen - score text.
 struct ScoreText: View {
     var score: Int
     
@@ -104,6 +125,7 @@ struct ScoreText: View {
     }
 }
 
+// Leaderboard screen - date text.
 struct DateText: View {
     var date: Date
     
@@ -117,17 +139,6 @@ struct DateText: View {
     }
 }
 
-struct BigBoldText: View {
-    let text: String
-    
-    var body: some View {
-        Text(text.uppercased())
-            .kerning(2.0)
-            .foregroundColor(Color("TextColor"))
-            .font(.title)
-            .fontWeight(.black)
-    }
-}
 
 struct TextViewPreviewView: View {
     var body: some View {
@@ -138,9 +149,9 @@ struct TextViewPreviewView: View {
             LabelText(text: "Round")
             BodyText(text: "You scored 200 Points \n 🎉🎉🎉")
             ButtonText(text: "Start New Round")
+            BigBoldText(text: "Leaderboard")
             ScoreText(score: 459)
             DateText(date: Date())
-            BigBoldText(text: "Leaderboard")
         }
         .padding()
     }

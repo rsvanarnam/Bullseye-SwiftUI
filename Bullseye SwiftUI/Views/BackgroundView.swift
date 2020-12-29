@@ -23,6 +23,7 @@ struct BackgroundView: View {
     }
 }
 
+// Main screen - Reset and leaderboard buttons.
 struct TopView: View {
     @Binding var game: Game
     @State private var leaderboardIsShowing = false
@@ -46,30 +47,7 @@ struct TopView: View {
     }
 }
 
-struct NumberView: View {
-    var title: String
-    var text: String
-    
-    var body: some View {
-        VStack(spacing: 5) {
-            LabelText(text: title.uppercased())
-            RoundRectTextView(text: text)
-        }
-    }
-}
-
-struct BottomView: View {
-    @Binding var game: Game
-    
-    var body: some View {
-        HStack {
-            NumberView(title: "Score", text: String(game.score))
-            Spacer()
-            NumberView(title: "Round", text: String(game.round))
-        }
-    }
-}
-
+// Main screen - The gradient of rings in the background.
 struct RingsView: View {
     var body: some View {
         ZStack {
@@ -84,6 +62,32 @@ struct RingsView: View {
                     )
                     .frame(width: size, height: size)
             }
+        }
+    }
+}
+
+// Main screen - combines the round/score text and numbers together.
+struct NumberView: View {
+    var title: String
+    var text: String
+    
+    var body: some View {
+        VStack(spacing: 5) {
+            LabelText(text: title.uppercased())
+            RoundRectTextView(text: text)
+        }
+    }
+}
+
+// Main screen - round/score placement.
+struct BottomView: View {
+    @Binding var game: Game
+    
+    var body: some View {
+        HStack {
+            NumberView(title: "Score", text: String(game.score))
+            Spacer()
+            NumberView(title: "Round", text: String(game.round))
         }
     }
 }

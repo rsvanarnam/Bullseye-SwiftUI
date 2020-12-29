@@ -92,6 +92,43 @@ struct ButtonText: View {
     }
 }
 
+struct ScoreText: View {
+    var score: Int
+    
+    var body: some View {
+        Text(String(score))
+            .bold()
+            .kerning(-0.2)
+            .foregroundColor(Color("TextColor"))
+            .font(.title3)
+
+    }
+}
+
+struct DateText: View {
+    var date: Date
+    
+    var body: some View {
+        Text(date, style: .time)
+            .bold()
+            .kerning(-0.2)
+            .foregroundColor(Color("TextColor"))
+            .font(.title3)
+
+    }
+}
+
+struct BigBoldText: View {
+    let text: String
+    
+    var body: some View {
+    Text(text.uppercased())
+        .kerning(2.0)
+        .foregroundColor(Color("TextColor"))
+        .font(.title)
+        .fontWeight(.black)
+    }
+}
 
 struct TextViewPreviewView: View {
     var body: some View {
@@ -101,7 +138,10 @@ struct TextViewPreviewView: View {
         SliderLabelText(text: "100")
         LabelText(text: "Round")
         BodyText(text: "You scored 200 Points \n 🎉🎉🎉")
-            ButtonText(text: "Start New Round")
+        ButtonText(text: "Start New Round")
+            ScoreText(score: 459)
+            DateText(date: Date())
+            BigBoldText(text: "Leaderboard")
         }
         .padding()
     }

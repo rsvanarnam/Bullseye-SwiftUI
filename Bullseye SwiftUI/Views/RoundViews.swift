@@ -16,17 +16,17 @@ struct HitMeButtonStyle: View {
             .font(.title3)
             .padding(20.0)
             
-    .background(
-        ZStack {
-            Color("ButtonColor")
-            LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom)
-        })
-    .foregroundColor(Color.white)
+            .background(
+                ZStack {
+                    Color("ButtonColor")
+                    LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom)
+                })
+            .foregroundColor(Color.white)
             .cornerRadius(Constants.General.roundRectCornerRadius)
-    .overlay(
-        RoundedRectangle(cornerRadius: Constants.General.roundRectCornerRadius)
-            .strokeBorder(Color.white, lineWidth: Constants.General.strokeWidth)
-        )
+            .overlay(
+                RoundedRectangle(cornerRadius: Constants.General.roundRectCornerRadius)
+                    .strokeBorder(Color.white, lineWidth: Constants.General.strokeWidth)
+            )
     }
 }
 
@@ -55,7 +55,7 @@ struct RoundedImageViewFilled: View {
             .frame(width: Constants.General.roundRectViewWidth, height: Constants.General.roundRectViewHeight)
             .background(
                 Circle()
-                .fill(Color("ButtonFilledBackgroundColor"))
+                    .fill(Color("ButtonFilledBackgroundColor"))
             )
     }
 }
@@ -73,25 +73,25 @@ struct RoundRectTextView: View {
             .foregroundColor(Color("TextColor"))
             .frame(width: Constants.General.roundRectViewWidth, height: Constants.General.roundRectViewHeight)
             .overlay(
-        RoundedRectangle(cornerRadius: Constants.General.roundRectCornerRadius)
-            .stroke(lineWidth: Constants.General.strokeWidth)
-            .foregroundColor(Color("ButtonStrokeColor"))
+                RoundedRectangle(cornerRadius: Constants.General.roundRectCornerRadius)
+                    .stroke(lineWidth: Constants.General.strokeWidth)
+                    .foregroundColor(Color("ButtonStrokeColor"))
             )
     }
 }
 
 struct RoundedTextView: View {
-  let text: String
-
-  var body: some View {
-    Text(text)
-      .font(.title)
-      .foregroundColor(Color("TextColor"))
-      .frame(width: Constants.General.roundedViewLength, height: Constants.General.roundedViewLength)
-      .overlay(
-        Circle()
-          .strokeBorder(Color("LeaderboardRowColor"), lineWidth: Constants.General.strokeWidth))
-  }
+    let text: String
+    
+    var body: some View {
+        Text(text)
+            .font(.title)
+            .foregroundColor(Color("TextColor"))
+            .frame(width: Constants.General.roundedViewLength, height: Constants.General.roundedViewLength)
+            .overlay(
+                Circle()
+                    .strokeBorder(Color("LeaderboardRowColor"), lineWidth: Constants.General.strokeWidth))
+    }
 }
 struct PreviewView: View {
     var body: some View {
